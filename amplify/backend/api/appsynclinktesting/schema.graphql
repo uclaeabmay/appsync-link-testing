@@ -1,0 +1,6 @@
+type Events @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  datetime: AWSDateTime
+  capacity: Int
+  location: String
+}
