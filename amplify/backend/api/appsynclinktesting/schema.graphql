@@ -3,6 +3,7 @@ type Tickets @model @auth(rules: [{allow: public}]) {
   quantity: Int
   qrString: String
   checkedIn: Boolean
+  Events: Events @hasOne
 }
 
 type Events @model @auth(rules: [{allow: public}]) {

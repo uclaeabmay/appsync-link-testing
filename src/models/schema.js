@@ -31,6 +31,24 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "Events": {
+                    "name": "Events",
+                    "isArray": false,
+                    "type": {
+                        "model": "Events"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "HAS_ONE",
+                        "associatedWith": [
+                            "id"
+                        ],
+                        "targetNames": [
+                            "ticketsEventsId"
+                        ]
+                    }
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -46,6 +64,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": [],
                     "isReadOnly": true
+                },
+                "ticketsEventsId": {
+                    "name": "ticketsEventsId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
                 }
             },
             "syncable": true,
@@ -150,5 +175,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.0",
-    "version": "af76cd17ad48f4fefae26b4d22d0099f"
+    "version": "05338289649dd3f39c846a0883f3166c"
 };
