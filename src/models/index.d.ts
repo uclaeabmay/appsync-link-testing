@@ -12,7 +12,7 @@ type EagerTickets = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly capacity?: number | null;
+  readonly quantity?: number | null;
   readonly qrString?: string | null;
   readonly checkedIn?: boolean | null;
   readonly createdAt?: string | null;
@@ -25,7 +25,7 @@ type LazyTickets = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly capacity?: number | null;
+  readonly quantity?: number | null;
   readonly qrString?: string | null;
   readonly checkedIn?: boolean | null;
   readonly createdAt?: string | null;

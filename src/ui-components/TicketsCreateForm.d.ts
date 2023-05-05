@@ -13,19 +13,19 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type TicketsCreateFormInputValues = {
-    capacity?: number;
+    quantity?: number;
     qrString?: string;
     checkedIn?: boolean;
 };
 export declare type TicketsCreateFormValidationValues = {
-    capacity?: ValidationFunction<number>;
+    quantity?: ValidationFunction<number>;
     qrString?: ValidationFunction<string>;
     checkedIn?: ValidationFunction<boolean>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TicketsCreateFormOverridesProps = {
     TicketsCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
-    capacity?: PrimitiveOverrideProps<TextFieldProps>;
+    quantity?: PrimitiveOverrideProps<TextFieldProps>;
     qrString?: PrimitiveOverrideProps<TextFieldProps>;
     checkedIn?: PrimitiveOverrideProps<SwitchFieldProps>;
 } & EscapeHatchProps;

@@ -10,8 +10,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "capacity": {
-                    "name": "capacity",
+                "quantity": {
+                    "name": "quantity",
                     "isArray": false,
                     "type": "Int",
                     "isRequired": false,
@@ -150,5 +150,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.0",
-    "version": "c36b4409b43bd6b86acc936c5fa1a496"
+    "version": "af76cd17ad48f4fefae26b4d22d0099f"
 };

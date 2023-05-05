@@ -29,22 +29,22 @@ export default function TicketsCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    capacity: "",
+    quantity: "",
     qrString: "",
     checkedIn: false,
   };
-  const [capacity, setCapacity] = React.useState(initialValues.capacity);
+  const [quantity, setQuantity] = React.useState(initialValues.quantity);
   const [qrString, setQrString] = React.useState(initialValues.qrString);
   const [checkedIn, setCheckedIn] = React.useState(initialValues.checkedIn);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setCapacity(initialValues.capacity);
+    setQuantity(initialValues.quantity);
     setQrString(initialValues.qrString);
     setCheckedIn(initialValues.checkedIn);
     setErrors({});
   };
   const validations = {
-    capacity: [],
+    quantity: [],
     qrString: [],
     checkedIn: [],
   };
@@ -74,7 +74,7 @@ export default function TicketsCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          capacity,
+          quantity,
           qrString,
           checkedIn,
         };
@@ -123,34 +123,34 @@ export default function TicketsCreateForm(props) {
       {...rest}
     >
       <TextField
-        label="Capacity"
+        label="Quantity"
         isRequired={false}
         isReadOnly={false}
         type="number"
         step="any"
-        value={capacity}
+        value={quantity}
         onChange={(e) => {
           let value = isNaN(parseInt(e.target.value))
             ? e.target.value
             : parseInt(e.target.value);
           if (onChange) {
             const modelFields = {
-              capacity: value,
+              quantity: value,
               qrString,
               checkedIn,
             };
             const result = onChange(modelFields);
-            value = result?.capacity ?? value;
+            value = result?.quantity ?? value;
           }
-          if (errors.capacity?.hasError) {
-            runValidationTasks("capacity", value);
+          if (errors.quantity?.hasError) {
+            runValidationTasks("quantity", value);
           }
-          setCapacity(value);
+          setQuantity(value);
         }}
-        onBlur={() => runValidationTasks("capacity", capacity)}
-        errorMessage={errors.capacity?.errorMessage}
-        hasError={errors.capacity?.hasError}
-        {...getOverrideProps(overrides, "capacity")}
+        onBlur={() => runValidationTasks("quantity", quantity)}
+        errorMessage={errors.quantity?.errorMessage}
+        hasError={errors.quantity?.hasError}
+        {...getOverrideProps(overrides, "quantity")}
       ></TextField>
       <TextField
         label="Qr string"
@@ -161,7 +161,7 @@ export default function TicketsCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              capacity,
+              quantity,
               qrString: value,
               checkedIn,
             };
@@ -187,7 +187,7 @@ export default function TicketsCreateForm(props) {
           let value = e.target.checked;
           if (onChange) {
             const modelFields = {
-              capacity,
+              quantity,
               qrString,
               checkedIn: value,
             };
