@@ -31,6 +31,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "eventsID": {
+                    "name": "eventsID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "Events": {
                     "name": "Events",
                     "isArray": false,
@@ -40,12 +47,9 @@ export const schema = {
                     "isRequired": false,
                     "attributes": [],
                     "association": {
-                        "connectionType": "HAS_ONE",
-                        "associatedWith": [
-                            "id"
-                        ],
+                        "connectionType": "BELONGS_TO",
                         "targetNames": [
-                            "ticketsEventsId"
+                            "eventsID"
                         ]
                     }
                 },
@@ -64,13 +68,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": [],
                     "isReadOnly": true
-                },
-                "ticketsEventsId": {
-                    "name": "ticketsEventsId",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
                 }
             },
             "syncable": true,
@@ -79,6 +76,15 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byEvents",
+                        "fields": [
+                            "eventsID"
+                        ]
+                    }
                 },
                 {
                     "type": "auth",
@@ -129,6 +135,22 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "Tickets": {
+                    "name": "Tickets",
+                    "isArray": true,
+                    "type": {
+                        "model": "Tickets"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "Events"
+                        ]
+                    }
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -175,5 +197,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.0",
-    "version": "05338289649dd3f39c846a0883f3166c"
+    "version": "afbf8a26390d8c4e0fa846eb09efcaee"
 };

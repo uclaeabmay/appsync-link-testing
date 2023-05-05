@@ -1,6 +1,6 @@
 import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
-import { LazyLoading, LazyLoadingDisabled, AsyncItem } from "@aws-amplify/datastore";
+import { LazyLoading, LazyLoadingDisabled, AsyncItem, AsyncCollection } from "@aws-amplify/datastore";
 
 
 
@@ -15,10 +15,10 @@ type EagerTickets = {
   readonly quantity?: number | null;
   readonly qrString?: string | null;
   readonly checkedIn?: boolean | null;
+  readonly eventsID: string;
   readonly Events?: Events | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly ticketsEventsId?: string | null;
 }
 
 type LazyTickets = {
@@ -30,10 +30,10 @@ type LazyTickets = {
   readonly quantity?: number | null;
   readonly qrString?: string | null;
   readonly checkedIn?: boolean | null;
+  readonly eventsID: string;
   readonly Events: AsyncItem<Events | undefined>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly ticketsEventsId?: string | null;
 }
 
 export declare type Tickets = LazyLoading extends LazyLoadingDisabled ? EagerTickets : LazyTickets
@@ -51,6 +51,7 @@ type EagerEvents = {
   readonly datetime?: string | null;
   readonly capacity?: number | null;
   readonly location?: string | null;
+  readonly Tickets?: (Tickets | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -64,6 +65,7 @@ type LazyEvents = {
   readonly datetime?: string | null;
   readonly capacity?: number | null;
   readonly location?: string | null;
+  readonly Tickets: AsyncCollection<Tickets>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
