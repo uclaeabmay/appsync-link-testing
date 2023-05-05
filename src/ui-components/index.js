@@ -5,5 +5,7 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
+export { default as TicketsCreateForm } from "./TicketsCreateForm";
+export { default as TicketsUpdateForm } from "./TicketsUpdateForm";
 export { default as EventsCreateForm } from "./EventsCreateForm";
 export { default as EventsUpdateForm } from "./EventsUpdateForm";
